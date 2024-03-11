@@ -25,12 +25,13 @@ export const HomePage = () => {
     {/* <iframe src="./../iframe/waves.html" frameborder="0" className='iframeWave'></iframe> */}
       <div className="upperspace"></div>
       <div className="backpspace">        
+      <div className="uppertextspace"></div>
     <div className="text"
        style={
         {fontSize:ratio>=1?"100px":"50px"}
       }
     >
-      Yo,<br></br>
+      Hi,<br></br>
       Atharva here!<br></br>
       </div>
       </div>

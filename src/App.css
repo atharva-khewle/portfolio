@@ -12,7 +12,12 @@
 }
 .centerpageview{
     min-height: 100vh;
+    align-items: center;
     z-index: 0;
+}
+.pageview{
+  justify-content: center;
+  display: flex;
 }
 .navbar{
     color: white;
@@ -20,7 +25,7 @@
     /* width: 91vw; */
     padding-left: 28px;
     align-items: center;
-    justify-content: space-betweenś;
+    justify-content: center;
     height: 72px;
     /* background-color: red; */
     z-index: 3;
@@ -60,23 +65,64 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 1s; 
   }
   
   .footernote{
     font-weight: 500;
     color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
     margin-top: 30px;
   }
 
-
-
-  .resume{
-    height: 50px;
+  .navcenter{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    width: 1320px;
+    padding-right: 20px;
   }
+
+
   
   .leftnav :hover{
     cursor: pointer;
   }
+
+  .footer-icon :hover{
+    transform: scale(1.2); /* Scale up on hover */  }
+
+
+
+    .leftnav{
+      font-weight: 300;
+      font-size: 35px;
+    }
+
+    .rightnav{
+      font-size: 17px;
+      display: flex;
+      align-items: end;
+    }
+
+    .RNavSpace{
+      width: 80px;
+    }
+
+
+
+    .ptr:hover{
+      cursor: pointer;
+      color: rgb(172, 172, 172);
+    }
+
+
+
 
 
   @media screen and (max-width: 768px) {
