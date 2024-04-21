@@ -27,7 +27,7 @@ const projectList = [
   ),
   new ProjectItem(
       "Chat Website",
-      "React, Firebase",
+      "React, Firebase, Tailwind CSS",
       "- Dive into diverse chat rooms for group or one-on-one conversations.<br/>- Enhance your chat experience with easy media sharing of videos and images.<br/>- Flexibility at your fingertips: login with Google or enter anonymously.<br/>- Tailor your experience with a personalized dashboard and settings.",
       "https://github.com/atharva-khewle/chat_website",
       "./src/assets/chat_website.png"
@@ -79,7 +79,10 @@ export const HomePage = () => {
       <div className="uppertextspace"></div>
     <div className="text"
        style={
-        {fontSize:ratio>=1?"100px":"50px"}
+        {
+          fontSize:ratio>=1?"100px":"50px",
+          paddingTop:ratio>=1?"0px":"30px",
+      }
       }
     >
       Hi,<br></br>
@@ -90,8 +93,8 @@ export const HomePage = () => {
     <iframe src="./../iframe/vanta.html" 
     style={
       {scale:ratio>=1?"0.9":"0.45"
-      ,left: ratio>=1?"0":"-206px"
-      ,top: ratio>=1?"45px":"0"
+      ,left: ratio>=1?"0":"-230px"
+      ,top: ratio>=1?"90px":"130px"
     }
     }
     frameborder="0" 
@@ -127,16 +130,51 @@ export const HomePage = () => {
 
 
 export const ProjectCard = ({ project }) => {
+  const [ratio, setRatio] = useState(window.innerWidth / window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setRatio(window.innerWidth / window.innerHeight);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove event listener when component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [ratio]);
   return (
     <div className='pcard'>
       <div className="pcardimage">
-        <img className="projectimg" src={project.path} alt="" />
+        <img className="projectimg" src={project.path} 
+               style={
+                
+                { 
+                  height:ratio>=1?"300px":"200px",
+                  width:ratio>=1?"300px":"200px",
+                }
+              }
+         alt="" />
         <a href={project.link} className="githbtn" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <div className="pcardcontent">
         <div className="projectheading">{project.heading}</div>
-        <div className="projectstack"><strong>{project.stack}</strong></div>
-        <div className="projectcontent" dangerouslySetInnerHTML={{ __html: project.content }}></div>
+        <div className="projectstack"  
+                       style={
+                        {
+                          fontSize:ratio>=1?"":"16px",
+                      }
+                      }
+        ><strong>{project.stack}</strong></div>
+        <div className="projectcontent"
+               style={
+                {
+                  fontSize:ratio>=1?"":"17px",
+              }
+              }
+         dangerouslySetInnerHTML={{ __html: project.content }}></div>
       </div>
     </div>
   )
